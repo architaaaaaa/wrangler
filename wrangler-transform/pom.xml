@@ -154,6 +154,45 @@
 </plugin>
 
     </plugins>
+    <resources>
+  <resource>
+    <directory>src/main/resources</directory>
+  </resource>
+</resources>
+
+<sourceDirectory>src/main/java</sourceDirectory>
+<testSourceDirectory>src/test/java</testSourceDirectory>
+
+<plugins>
+  <!-- Existing plugins including ANTLR here -->
+</plugins>
+
+<pluginManagement>
+  <plugins></plugins>
+</pluginManagement>
+
+<defaultGoal>install</defaultGoal>
+
+<plugin>
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>build-helper-maven-plugin</artifactId>
+  <version>3.2.0</version>
+  <executions>
+    <execution>
+      <id>add-source</id>
+      <phase>generate-sources</phase>
+      <goals>
+        <goal>add-source</goal>
+      </goals>
+      <configuration>
+        <sources>
+          <source>${project.build.directory}/generated-sources/antlr4</source>
+        </sources>
+      </configuration>
+    </execution>
+  </executions>
+</plugin>
+
   </build>
 
   <!-- Profile for release. Includes signing of jars. -->
